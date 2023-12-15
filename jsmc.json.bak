@@ -39,10 +39,10 @@
           "logo": "https://epg.112114.xyz/logo/{name}.png"
         },
         {
-          "name": "百事通8M",
+          "name": "",
           "type":"0",
           "pass": true,
-          "url":"./lib/百事通8M.txt",
+          "url":"./lib/iptv.txt",
           "epg": "https://epg.112114.xyz/?ch={name}&date={date}",     
           "logo": "https://epg.112114.xyz/logo/{name}.png"
         },
