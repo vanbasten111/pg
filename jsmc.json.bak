@@ -210,6 +210,15 @@
 			"ext":"0$$$" 
 		},
 		{
+			"key": "星星",
+			"name": "星星 | 海外",
+			"type": 3,
+			"api": "csp_Star",
+			"searchable": 1,
+			"changeable": 0,
+			"ext":""
+		},
+		{
 			"key": "獨播",
 			"name": "獨播 | 海外",
 			"type": 3,
