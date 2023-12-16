@@ -13,18 +13,38 @@
 "uc_is_vip":false,
 "uc_vip_thread_limit":0,
 "uc_flags":"4kz|auto",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 148ad0f730600fd4611d529b840bee228574ce3b
 "thunder_thread_limit":0,
 "thunder_is_vip":false,
 "thunder_vip_thread_limit":0,
 "thunder_flags":"4k|4kz|auto",
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> b2db08e5c32f4983348aa766084d599259504e22
+>>>>>>> 148ad0f730600fd4611d529b840bee228574ce3b
 "aliproxy":"",
 "proxy":"",
 "open_api_url":"https://api.xhofe.top/alist/ali_open/",
 "danmu":true,
 "quark_danmu":true,
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 148ad0f730600fd4611d529b840bee228574ce3b
 "quark_cookie":"",
 "uc_cookie":"",
 "thunder_username":"",
 "thunder_password":"",
 "thunder_captchatoken":""
+<<<<<<< HEAD
+=======
+=======
+"quark_cookie":""
+"uc_cookie":""
+>>>>>>> b2db08e5c32f4983348aa766084d599259504e22
+>>>>>>> 148ad0f730600fd4611d529b840bee228574ce3b
 }
