@@ -187,6 +187,14 @@
 			"playerType":1,
 			"ext": "https://api123.adys.app/xgapp.php/v3/"
 		},
+		 {
+			"key": "996影院",
+			"name": "996影院",
+			"type": 3,
+			"api": "csp_Cs1369",
+			"searchable": 1,
+			"changeable": 1
+		},
 		{
 			"key": "csp_Czsapp",
 			"name": "📔厂长┃直连",
@@ -616,6 +624,19 @@
       "jar": "fty.jar",
       "ext": "./lib/企鹅直播.json"
     },
+		{
+			"key": "FirstAid",
+			"name": "🚑 急救知识 ",
+			"type": 3,
+			"api": "csp_FirstAid",
+			"searchable": 0,
+			"quickSearch": 0,
+			"changeable": 0,
+			"style": {
+				"type": "rect",
+				"ratio": 3.8
+			}
+		},
         {"key": "push_agent","name": "推送","type": 3,"api": "csp_Push","changeable":0, "timeout":30, "ext":"./lib/tokenm.json"},
 		{"key":"Local","name":"本地","type":3,"api":"csp_Local"},
 		{
