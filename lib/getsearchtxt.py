@@ -13,7 +13,7 @@ skipp = re.compile(r'.*(cover|screen|频道).*',re.IGNORECASE)
 reqcount=1
 sharedict=set()
 
-def getlist(w,shareid, fileid):
+def getlist(w,shareid, fileid,morepage):
     global p
     global skipp
     global reqcount
@@ -23,7 +23,7 @@ def getlist(w,shareid, fileid):
     if reqcount % 5 == 0:
         print(f"reqcount:{reqcount} shareid:{shareid} fileid:{fileid}",file=sys.stderr)
         #time.sleep(1)
-    url = f'http://192.168.101.104:9978/proxy?do=pikpak&type=list&share_id={shareid}&file_id={fileid}&pass_code='
+    url = f'http://192.168.101.188:9978/proxy?do=pikpak&type=list&share_id={shareid}&file_id={fileid}&pass_code=&morepage={morepage}'
     print(f"url: {url}",file=sys.stderr)
     resp = requests.get(url)
     content = resp.content.decode('utf-8')
@@ -52,15 +52,17 @@ def getlist(w,shareid, fileid):
             w.write(line+"\n")
             w.flush()
             if linearr[2] == "folder":
-                getlist(w,shareid,fileid)
+                getlist(w,shareid,fileid,False)
 
-    
+    if len(lines)>0:
+        getlist(w,shareid,fileid,True)
+
 def main():
     try:
-        f = gzip.open(sys.argv[1]+".txt.gz",mode="rt",encoding="utf-8")
+        f = gzip.open(sys.argv[1]+".raw.gz",mode="rt",encoding="utf-8")
         if f is not None:
-            print(f"found gz txt file:{sys.argv[1]}.txt.gz, extract it",file=sys.stderr)
-            with(open(sys.argv[1]+".txt","w",encoding="utf-8")) as w:
+            print(f"found gz raw file:{sys.argv[1]}.raw.gz, extract it",file=sys.stderr)
+            with(open(sys.argv[1]+".raw","w",encoding="utf-8")) as w:
                 while(True):
                     lines = f.readlines()
                     if len(lines)<=0:
@@ -72,11 +74,11 @@ def main():
     except:
         traceback.print_exc()
         try:
-            f = open(sys.argv[1]+".txt","r",encoding="utf-8")
+            f = open(sys.argv[1]+".raw","r",encoding="utf-8")
         except:
             f = None
     if f is not None:
-        print("found old txt file")
+        print("found old raw file")
         while True:
             lines = f.readlines()
             if len(lines)<=0:
@@ -93,10 +95,10 @@ def main():
                     fileid = arr[1]
                     sharedict.add(shareid+"/"+fileid)
         f.close()
-        print(f"old txt file record:{len(sharedict)}")
+        print(f"old raw file record:{len(sharedict)}")
     else:
-        print("no old txt file")
-    with(open(sys.argv[1]+".txt","a+",encoding="utf-8")) as w:
+        print("no old raw file")
+    with(open(sys.argv[1]+".raw","a+",encoding="utf-8")) as w:
         with(open(sys.argv[1],"r",encoding="utf-8")) as f:
             j = json.load(f)
             for c in j:
@@ -111,6 +113,6 @@ def main():
                 fileid=arr[1] if len(arr)>1 else ""
                 if shareid+"/"+fileid in sharedict:
                     continue
-                getlist(w,shareid,fileid)
+                getlist(w,shareid,fileid,False)
 
 main()
